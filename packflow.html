@@ -1,3 +1,5 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b3d24">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}</style>
 <title>Pack Flow Basic</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Sarabun:wght@400;500;600;700&display=swap">
@@ -47,7 +49,20 @@ p{margin:0}.mut{color:var(--mut)}.sm{font-size:14px}
 .cst .wipn.zero{color:#c92a2a}.cst small{display:block;font-size:11.5px;color:var(--mut);line-height:1.25}
 .convbelt{height:10px;border-radius:5px;background:repeating-linear-gradient(90deg,#8a5a1e 0 14px,#b98a4e 14px 28px);border:2px solid var(--ink);margin:2px 0 6px}
 .gwrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:10px}
-@media(max-width:700px){.gwrap{grid-template-columns:1fr}}
+@media(max-width:700px){.gwrap{grid-template-columns:1fr}
+ .gfield{height:min(50vh,330px)!important}
+ .gdot{width:54px;height:54px;margin:-27px 0 0 -27px;font-size:21px}
+ .gobj{width:74px;height:50px;font-size:26px}
+ .gslot{width:84px;height:56px;font-size:13px}
+ .tv .tvs{max-height:26vh;overflow:hidden}}
+@media(orientation:landscape) and (max-height:560px){
+ .gwrap{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
+ .gfield{height:min(64vh,250px)!important}
+ .prevonly,.vcleg,.convbelt+p{display:none}
+ .conv{padding:2px}.cst{flex:1 0 76px;padding:3px}.cst .wipn{font-size:19px}.cst small{font-size:10px}
+ .card{padding:9px;gap:7px}.bubble{font-size:16px!important}
+ .tv{padding:4px}.tv .tvs{max-height:34vh;overflow:hidden}.tv .tvcap{font-size:12.5px;min-height:0}
+ .ghint{font-size:13px;padding:3px 6px}}
 .gfield{position:relative;height:230px;border-radius:14px;border:3px solid var(--ink);background:linear-gradient(180deg,#eaf7ef,#d7efdf);overflow:hidden;touch-action:none;user-select:none}
 .gfield .gtable{position:absolute;left:0;right:0;bottom:0;height:46px;background:#b98a4e;border-top:3px solid #6b4b17}
 .gobj{position:absolute;width:62px;height:42px;border-radius:8px;border:3px solid #0b3d24;background:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;cursor:grab;box-shadow:0 3px 0 rgba(0,0,0,.18);touch-action:none;z-index:3}
@@ -65,6 +80,8 @@ p{margin:0}.mut{color:var(--mut)}.sm{font-size:14px}
 .tv .tvh{display:flex;justify-content:space-between;align-items:center;color:#9ff0bd;font-size:13px;font-weight:700}
 .tv .tvs{background:var(--panel);border-radius:8px;overflow:hidden}
 .tv .tvcap{color:#d8ffe6;font-size:14px;min-height:38px;line-height:1.3}
+.rotwarn{border:3px solid #ff9f1c;background:#fff7e6;color:#8a4b00;border-radius:12px;padding:6px 10px;font-weight:700;font-size:15px}
+@media(orientation:landscape) and (max-height:560px){.rotwarn{display:block!important}}
 .wipwarn{border:3px solid #e03131;background:#fff0f0;color:#9c1a1a;border-radius:12px;padding:8px 10px;font-weight:700;font-size:17px}
 .wisc{display:flex;align-items:center;gap:14px;padding:14px;flex-wrap:wrap;justify-content:center;background:linear-gradient(180deg,transparent,rgba(0,0,0,.04))}
 .wicol{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:13px;color:var(--mut)}
@@ -82,7 +99,8 @@ p{margin:0}.mut{color:var(--mut)}.sm{font-size:14px}
 .jstep.now>b{background:#ff7a00;color:#fff;animation:hintp .5s ease-in-out infinite alternate}
 .bigcnt{font:600 30px var(--display);color:#0b3d24;background:#ffe9a8;border:3px solid #0b3d24;border-radius:14px;padding:6px 18px;display:inline-block}
 .jstep.done{border-color:#12a150}.jstep.done>b{background:#12a150;color:#fff}
-.jstep.wait{opacity:.55}.jwrap{display:flex;flex-direction:column;gap:8px}
+.jstep.wait{opacity:.55}.jwrap{display:flex;flex-direction:column;gap:4px}
+.jarrow{text-align:center;font-size:22px;line-height:1.1;color:#ff7a00;font-weight:700}
 .bigin{font:600 20px var(--body);padding:14px 16px;border-radius:14px;border:3px solid var(--ink);background:var(--panel);color:var(--fg);width:100%;max-width:340px}
 .qrbox{background:#fff;padding:8px;border-radius:12px;border:2px solid var(--ink);display:inline-block}
 .qrbox img{width:150px;height:150px;display:block;image-rendering:pixelated}.stidea .hand{width:30px;height:30px;font-size:15px}.stidea .vctag{font-size:12.5px}.stidea.on{border-color:#1f78c1;background:color-mix(in srgb,var(--panel) 62%,#1f78c1)}.stmeta{font-size:12px;font-weight:400}.stmeta b{color:var(--warn)}.stmeta b.free{color:var(--good)}
@@ -994,10 +1012,12 @@ function viewShift(){
   <section class="card noan" style="gap:10px"><div style="height:12px;border-radius:7px;background:var(--line);overflow:hidden;border:2px solid var(--ink)"><div id="shbar" style="height:100%;width:${sec/SHIFT_SEC*100}%;background:linear-gradient(90deg,#16a34a,#ff5d3a)"></div></div>
   ${sim?convHTML():''}
   ${sim&&av<=0?`<div class="wipwarn">⏳ ไม่มีงานรอทำ (WIP = 0) รอสถานี ${x.pos} ส่งชิ้นงานมาก่อน · นี่คือ "คอขวด" ที่ทำให้สายช้า</div>`:''}
+  <div class="rotwarn" style="display:none">📱 แนะนำให้ถือมือถือ <b>แนวตั้ง</b> จะเห็นครบและกดง่ายกว่า</div>
   <div class="bubble" style="font-size:20px">ขั้นที่ <b>${SH.q+1}/${SH.seq.length}</b>: <b>${KLAB[id]}</b>${(GREP[id]||1)>1?` · ทำ ${(SH.grep||0)+1}/${GREP[id]}`:''}</div>
   <div class="gwrap"><div>${gzHTML(id)}<div class="row" style="margin-top:6px"><button class="chip" data-act="shpick" data-id="${id}">แตะแทนท่านี้ (ถ้ามือถือไม่รองรับ)</button></div></div>${tvHTML(id)}</div>
-  ${stepBtns(SH.seq,SH.q,'shpick',SH.bad,true)}${VCLEG()}</section>`;
+  <div class="prevonly">${stepBtns(SH.seq,SH.q,'shpick',SH.bad,true)}</div>${VCLEG()}</section>`;
   if(!TVI)TVI=setInterval(tvTick,2600);
+  if(innerWidth<=900)requestAnimationFrame(()=>{const g=$('gz');if(g&&V.view==='shift')g.scrollIntoView({block:'center',behavior:'auto'})});
 }
 function shiftTick(){if(V.view!=='shift'){clearInterval(SH.iv);return}const e=$('shclock');if(!SH.t0)return;const sec=Math.max(0,SHIFT_SEC-(Date.now()-SH.t0)/1000);if(e)e.textContent='⏱️ '+Math.ceil(sec)+' วิ';const b=$('shbar');if(b)b.style.width=(sec/SHIFT_SEC*100)+'%';if(sec<=0)shiftEnd()}
 function shiftPick(id){
@@ -1393,12 +1413,15 @@ async function teamConfirmName(name){name=(name||'').trim().slice(0,24);if(!name
 const THIS_URL=OP_URL;
 const QR_THIS='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAzQAAAM0AQAAAABFCVraAAADMklEQVR42u3dQU4sIRAGYOIFuP8t+wZjYlSgKHpcqAnMx8K8Htv+FrPo/xVQlMe/jKtwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8N5BafEUbvbhs+u/q6Py6cPeCv/MzgcDofD4fzC6PNB7aNDywLZyz/c137kz5MPOBwOh8PZOB+0//mHV367ub/l6QPkAw6Hw+FwDswHX5chGuSX8gGHw+FwOC+VD/rphus7FQyX8gGHw+FwOGfmgzwulO9liNdtdcH6Aw6Hw+FwjssHYdRp8eGzH/MD5AMOh8PhcLbOB9mY3vbX+BdDOeFuH6Xvh8PhcDicTesHNQkEj6kJQr/nsf70b30/HA6Hw+Fsnw9C64PlwoS5RUJeU5APOBwOh8PZNR+0y6v/7dRJsU6lgxAmwpPlAw6Hw+Fwds0HLQGEf2VrEdt2huWKBfmAw+FwOJwT6gdzmWCZHvqTGGo/tZBlBvmAw+FwOJyt80G2TeHzzmXDg5AKQgsl+YDD4XA4nK3zQYgBJWmINAeCrJIQniwfcDgcDoezaz7IFyFk6eGusWI+NyEfcDgcDoeza/1g7mbQv/yH6sK0k2G4T39lDofD4XBOqh/86LMhLuh/wOFwOBzO0flgMUfQf1ZWFYJHsp3B/AKHw+FwOLvng6kkcL8CcdEVaZE8fD8cDofD4eybD25OZUrnDaakkLdllg84HA6Hw9k1H9RkaeL90UxhJULWSkE+4HA4HA5n93ywTADZJsfs5nyDpHzA4XA4HM7W9YOyOlehZu/98WFzopAPOBwOh8M5KR+EWkEfHK7VsdAtJDh/gcPhcDicI/JBNvpNjmW12SHrrWT9AYfD4XA4h9QPwlic1JQXG2qywFH9gMPhcDic/fNBtgchlAmG4BDyQUgZ8gGHw+FwOIfkg5YAsnww9VJetkayf4HD4XA4nFfJB1NceEwTCvkhjvIBh8PhcDgn5YOaTBmEYxYW5zOpH3A4HA6Hc0g+uNm6kPZN7p+Sz0jIBxwOh8PhbJ0PwpjPWrg/ArrPEdYfcDgcDodzRD74y3FxOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8M513kHc/H2vNhjT1EAAAAASUVORK5CYII=';
 const inviteText=()=>['เชิญเล่นเกม Pack Flow Basic (เกม 1)','','1) เปิดลิงก์นี้ '+THIS_URL,'2) กดปุ่ม ▶ เล่น Operator','3) พิมพ์ชื่อเล่นของคุณ แล้วกด เข้าห้องรอ','4) รอหัวหน้ากดจัดทีม แล้วกด ▶ เริ่มเล่น ด่าน 1'].join('\n');
+const jarrow='<div class="jarrow">⬇</div>';
 const joinStep=(n,st,title,sub,extra)=>`<div class="jstep ${st}"><b>${st==='done'?'✓':n}</b><div style="flex:1"><div class="jt">${title}</div>${sub?`<div class="js">${sub}</div>`:''}${extra||''}</div></div>`;
 function lobbyCardHTML(){
   if(!lobbyOn()){const ok=!!(P.team&&P.nick);return `<div class="card lt" style="border:3px solid #1f78c1;background:#eef7ff;gap:4px"><b style="font-size:19px">📱 โหมดทีมละ 1 เครื่อง</b><span class="sm">ทั้งทีม (${PEOPLE.length} คน) ดูจอนี้ด้วยกัน ช่วยกันคิด ผลัดกันกดตอนลงมือทำจริง · ไม่ต้องล็อกอิน</span></div>
   <div class="jwrap">
     ${joinStep(1,P.team?'done':'now','พิมพ์ชื่อทีมของคุณ','เช่น ทีม A ทีมเสือ ทีมกะเช้า',`<div class="row" style="margin-top:6px"><input class="bigin" id="tname" maxlength="24" placeholder="เช่น ทีม A" value="${esc(P.team||'')}" aria-label="ชื่อทีม"></div>`)}
+    ${jarrow}
     ${joinStep(2,P.nick?'done':(P.team?'now':'wait'),'พิมพ์ชื่อคนถือเครื่อง','ใครก็ได้ในทีม ใช้แสดงบนกระดานคะแนน',`<div class="row" style="margin-top:6px"><input class="bigin" id="nick" maxlength="20" placeholder="เช่น สมชาย" value="${esc(P.nick||'')}" aria-label="ชื่อเล่น"></div>`)}
+    ${jarrow}
     ${joinStep(3,ok?'done':'wait','กดบันทึก แล้วเริ่มเล่นได้เลย',ok?'บันทึกแล้ว: '+esc(P.team)+' · '+esc(P.nick)+' · เลื่อนลงไปกดปุ่มส้ม ▶ เริ่มเล่น ด่าน 1':'กดปุ่มด้านล่างเพื่อบันทึก',`<div class="row" style="margin-top:6px"><button class="vbtn o ${ok?'':'blink'}" style="font-size:19px;padding:12px 22px" data-act="nick">💾 บันทึก / เข้าร่วมทีม</button></div>`)}
   </div><p class="sm mut">ถ้าใช้หลายเครื่องในทีมเดียวกัน ให้พิมพ์ชื่อทีมให้เหมือนกันทุกเครื่อง</p>`}
 
@@ -1414,7 +1437,9 @@ function lobbyCardHTML(){
   else {s3t='⏳ รอหัวหน้ากดจัดทีม';s3s='คุณอยู่ในห้องรอแล้ว ขณะนี้ในห้องมี '+n+' คน';s3st='now'}
   const body=`<div class="jwrap">
     ${joinStep(1,named?'done':'now','พิมพ์ชื่อเล่นของคุณ','ชื่อจริงหรือชื่อเล่นก็ได้ เพื่อนจะได้รู้ว่าใคร',`<div class="row" style="margin-top:6px"><input class="bigin" id="nick" maxlength="20" placeholder="เช่น สมชาย" value="${esc(P.nick||'')}" aria-label="ชื่อเล่น"></div>`)}
+    ${jarrow}
     ${joinStep(2,inRoom?'done':(named?'now':'wait'),inRoom?('เข้าห้องรอแล้ว: '+esc(P.nick)):'กดปุ่ม เข้าห้องรอ',inRoom?'ถ้าแก้ชื่อ ให้กดปุ่มนี้อีกครั้ง':'กดแล้วชื่อของคุณจะขึ้นบนจอของหัวหน้า',`<div class="row" style="margin-top:6px"><button class="vbtn o ${inRoom?'':'blink'}" style="font-size:19px;padding:12px 22px" data-act="lobbyjoin">${inRoom?'↻ อัปเดตชื่อ':'🚪 เข้าห้องรอ'}</button></div>`)}
+    ${jarrow}
     ${joinStep(3,s3st,s3t,s3s,(got&&tnamed)?`<div class="row" style="margin-top:6px"><button class="vbtn o blink" style="font-size:19px;padding:12px 22px" data-act="open" data-l="1">▶ เริ่มเล่น ด่าน 1</button></div>`:'')}
   </div>`;
   let mine='';
@@ -1430,7 +1455,9 @@ function lobbyCardHTML(){
   const sz=LSIZE||(LCFG&&LCFG.size)||5,nt=Math.max(1,Math.ceil(n/sz)),mn=Math.floor(n/nt),mx=Math.ceil(n/nt),asg=!!(LCFG&&LCFG.state==='assigned');
   const run=ADM?`<div class="card lt" style="border:4px solid #1f78c1;background:#eef7ff;gap:8px"><h3 style="margin:0;font-size:21px">🎤 หัวหน้าทำตามนี้ 4 ขั้น</h3><div class="row" style="align-items:center"><span class="bigcnt">เข้าห้องรอแล้ว ${n} คน</span>${asg?`<span class="pill g">จัดทีมแล้ว ${nt} ทีม</span>`:(n>0?'<span class="pill w">พร้อมจัดกลุ่ม · กดปุ่มที่กะพริบ 🎲 สุ่มจัดทีม</span>':'<span class="pill i">รอทุกคนกด เข้าห้องรอ</span>')}</div><div class="jwrap">
     ${joinStep(1,'now','ส่งลิงก์ หรือให้ทีมสแกน QR นี้','ทุกคนเปิดในมือถือตัวเอง แล้วกด ▶ เล่น Operator',`<div class="row" style="margin-top:6px;align-items:flex-start"><div class="qrbox"><img src="${ONCL?QR_THIS:QRG1}" alt="QR เกม 1"></div><div class="col" style="gap:6px"><button class="btn" data-act="copy" data-u="${THIS_URL}">📋 คัดลอกลิงก์</button><button class="btn ghost" data-act="copy" data-u="${esc(inviteText())}">📋 คัดลอกข้อความเชิญ (ส่ง LINE)</button></div></div>`)}
+    ${jarrow}
     ${joinStep(2,n>0?'done':'now','ให้ทุกคนพิมพ์ชื่อ แล้วกด เข้าห้องรอ','ตอนนี้ในห้องมี <b>'+n+'</b> คน ชื่อจะขึ้นด้านล่างทันที')}
+    ${jarrow}
     ${joinStep(3,asg?'done':(n>0?'now':'wait'),asg?('จัดทีมแล้ว '+nt+' ทีม'):'กดปุ่ม 🎲 สุ่มจัดทีม (อยู่ด้านล่าง)','เลือกคนต่อทีมก่อน แล้วกดสุ่ม · '+n+' คน → '+nt+' ทีม (ทีมละ '+(mn===mx?mx:mn+'–'+mx)+' คน)')}
     ${joinStep(4,asg?'now':'wait','แต่ละทีมมี ⭐ 1 คนตั้งชื่อทีม แล้วทุกคนกด ▶ เริ่มเล่น ด่าน 1',asg?('ตั้งชื่อแล้ว '+Object.keys(TEAMS).filter(k=>TEAMS[k]&&TEAMS[k].confirmed).length+' / '+nt+' ทีม'):'ระบบจะสุ่มคนตั้งชื่อทีมให้เองตอนกดจัดทีม')}
     ${asg?`<div class="row">${Object.keys(TEAMS).sort().map(k=>{const t=TEAMS[k]||{};return `<span class="pill ${t.confirmed?'g':'w'}">${t.confirmed?'✅ '+esc(t.name):'⏳ รอ ⭐ '+esc(t.capName||'?')}</span>`}).join('')}</div>`:''}
@@ -1680,12 +1707,21 @@ const estMs=t=>Math.max(1500,ttsClean(t).length*95/(P.vrate||.85));
 async function speakTh(t){const rate=P.vrate||.85,c=ttsClean(t);if(!c)return;if(P.mute){await sleep(estMs(t));return}if((P.voice==='device'||!TTSc)&&hasDev()){await devSpeak(c,rate);return}if(!TTSc){await sleep(estMs(t));return}try{await TTSc.speak(c,{language:'th',rate,voice:P.voice||'buttery'})}catch(e){await sleep(Math.min(estMs(t),2500))}}
 function speakStop(){try{if(TTSc&&TTSc.stop)TTSc.stop()}catch(e){}try{if(hasDev())speechSynthesis.cancel()}catch(e){}}
 const VRATES=[[.7,'ช้ามาก'],[.85,'ช้าชัด'],[1,'ปกติ']],VOICES=[['buttery','เสียง 1'],['airy','เสียง 2'],['glassy','เสียง 3'],['rounded','เสียง 4'],['device','เสียงไทยของเครื่อง']];
-function devSpeak(c,rate){return new Promise(r=>{try{const u=new SpeechSynthesisUtterance(c);u.lang='th-TH';u.rate=rate;const v=speechSynthesis.getVoices().find(x=>/^th/i.test(x.lang));if(v)u.voice=v;let done=false;const fin=()=>{if(!done){done=true;r()}};u.onend=fin;u.onerror=fin;setTimeout(fin,Math.max(4000,c.length*220));speechSynthesis.speak(u)}catch(e){r()}})}
+function devSpeak(c,rate){return new Promise(r=>{try{spUnlock();if(speechSynthesis.paused)try{speechSynthesis.resume()}catch(e){}const u=new SpeechSynthesisUtterance(c);u.lang='th-TH';u.rate=rate;const v=speechSynthesis.getVoices().find(x=>/^th/i.test(x.lang));if(v)u.voice=v;let done=false;const fin=()=>{if(!done){done=true;r()}};u.onend=fin;u.onerror=fin;setTimeout(fin,Math.max(4000,c.length*220));speechSynthesis.speak(u)}catch(e){r()}})}
 const hasDev=()=>typeof speechSynthesis!=='undefined'&&typeof SpeechSynthesisUtterance!=='undefined';
+let SPUNLOCKED=false;
+function spUnlock(){
+  if(SPUNLOCKED||!hasDev())return;SPUNLOCKED=true;
+  try{const u=new SpeechSynthesisUtterance('เริ่ม');u.volume=0;u.lang='th-TH';u.rate=1.4;speechSynthesis.speak(u)}catch(e){}
+  try{speechSynthesis.getVoices()}catch(e){}
+}
+document.addEventListener('pointerdown',spUnlock,true);
+document.addEventListener('touchstart',spUnlock,true);
+document.addEventListener('click',spUnlock,true);
 const hasThaiVoice=()=>{try{return hasDev()&&speechSynthesis.getVoices().some(v=>/^th/i.test(v.lang))}catch(e){return false}};
 function autoThaiVoice(){if(P.voice)return;if(hasThaiVoice()){P.voice='device';saveP()}}
 try{if(hasDev()){autoThaiVoice();speechSynthesis.onvoiceschanged=autoThaiVoice}}catch(e){}
-function voiceSettingsHTML(){return `<div class="row"><span class="sm">ความเร็วเสียงพูด</span>${VRATES.map(([v,n])=>`<button class="chip ${(P.vrate||.85)===v?'sel':''}" data-act="vrate" data-v="${v}">${n}</button>`).join('')}</div><div class="row"><span class="sm">เลือกเสียง</span>${VOICES.map(([v,n])=>`<button class="chip ${(P.voice||'buttery')===v?'sel':''}" data-act="voice" data-v="${v}">${n}</button>`).join('')}<button class="btn ghost" data-act="vtest">🔉 ทดลองเสียง</button><button class="chip ${P.mute?'sel':''}" data-act="vmute">${P.mute?'🔇 ปิดเสียงอยู่':'🔊 เปิดเสียง'}</button></div>`}
+function voiceSettingsHTML(){return `<div class="row"><span class="sm">ความเร็วเสียงพูด</span>${VRATES.map(([v,n])=>`<button class="chip ${(P.vrate||.85)===v?'sel':''}" data-act="vrate" data-v="${v}">${n}</button>`).join('')}</div><div class="row"><span class="sm">เลือกเสียง</span>${VOICES.map(([v,n])=>`<button class="chip ${(P.voice||'buttery')===v?'sel':''}" data-act="voice" data-v="${v}">${n}</button>`).join('')}<button class="btn ghost" data-act="vtest">🔉 ทดลองเสียง</button><button class="chip ${P.mute?'sel':''}" data-act="vmute">${P.mute?'🔇 ปิดเสียงอยู่':'🔊 เปิดเสียง'}</button></div>${ONCL?'':`<div class="card lt" style="border:3px solid #ff9f1c;background:#fff7e6;gap:3px"><b style="font-size:17px">📱 ไม่ได้ยินเสียงบนมือถือ ลองตามนี้</b><ol style="margin:0;padding-left:20px;font-size:15px;line-height:1.6"><li>กดปุ่ม <b>🔉 ทดลองเสียง</b> ด้านบน 1 ครั้ง</li><li>iPhone: ปิดสวิตช์ปิดเสียงข้างเครื่อง (โหมดเงียบ) และเร่งระดับเสียง</li><li>Android: ต้องมี Google Text-to-Speech ภาษาไทยติดตั้งไว้</li><li>เลือกปุ่ม <b>เสียงไทยของเครื่อง</b> ด้านบน</li></ol><span class="sm mut">เวอร์ชันบนเว็บนี้ใช้เสียงพูดของเครื่องคุณเอง ทุกข้อความมีตัวหนังสือบนจอครบ เล่นได้แม้ไม่มีเสียง</span></div>`}`}
 /* video lesson */
 
 const card=(h,rows)=>`<div style="display:flex;flex-direction:column;gap:8px;padding:14px;font-size:18px;line-height:1.5"><div style="font-size:48px">${h}</div>${rows.map(r=>`<div>${r}</div>`).join('')}</div>`;
@@ -1774,9 +1810,9 @@ function ladder(){
 }
 const MIS=[{n:'ต่างคนต่างทำ ทุกขั้นตอน',g:'ทีมของคุณ แต่ละคนแพ็คครบทุกขั้นตอนด้วยตัวเอง ออกแบบลำดับให้เดินน้อยที่สุด ยากเพราะเดินชนกันและงานแก้เยอะ'},{n:'One piece flow ส่งต่อทีละคน (1:1)',g:'แบ่งงานให้ทุกคนในทีมบนสายพาน ซึ่งแต่ละคนมี CT ไม่เท่ากัน แล้วดู Line balance'},{n:'Kaizen ประชุมทีม ด้วย ECRS',g:'ทีมประชุมร่วมกัน ใช้หลัก ตัด รวม จัดใหม่ ทำให้ง่าย ลงมติเลือกแนวทาง แล้วเริ่มเกมด้วยคนเท่าเดิม'}];
 function viewMapAfter(){viewMap();$('app').insertAdjacentHTML('afterbegin','<div class="card" style="border-color:var(--good)"><b>✅ ทำ 3ส ก่อนเลิกงานเรียบร้อย เลิกงานได้ ด่านถัดไปปลดล็อกแล้ว</b></div>')}
-const needJoin=()=>lobbyOn()&&myIdx()==null;
-function lobbySecHTML(){return `<section class="card" style="${needJoin()?'border:4px solid #ff5d3a':''}"><h2>👥 ${needJoin()?'เริ่มที่นี่ก่อน: เข้าห้องรอและรับทีม':'ห้องรอ ทีม และการแข่งขัน'}</h2><div id="lobbyBox" style="display:flex;flex-direction:column;gap:10px">${lobbyCardHTML()}</div><div id="lbBox">${boardHTML()}</div><div class="row"><button class="btn" data-act="arc">⚡ แข่งแพ็ค 45 วินาที × 3 รอบ</button></div><p class="sm mut">แต้มรวม = คะแนนดีที่สุดของ 3 ด่าน (ดาว + ชิ้น/ชม. + ต้นทุนต่ำ) + คะแนนแข่งแพ็ค</p></section>`}
-function startCardHTML(){return (()=>{const nl=[1,2,3].find(l=>!(P.stars[l]>0))||0;const lab=nl?`▶ เริ่มเล่น ด่าน ${nl}`:'🏁 ดูพิธีปิดเกม';const act=nl?`data-act="open" data-l="${nl}"`:'data-act="fin"';return `<section class="card lt" style="border:4px solid #ff5d3a;background:linear-gradient(135deg,#fff7e6,#ffe8d6)"><h2>👉 ${needJoin()?'ขั้นต่อไป: รอได้ทีมก่อน':'เริ่มเล่นตรงนี้'}</h2>${needJoin()?'<div class="card lt" style="border:3px solid #ff5d3a;background:#fff0ea;gap:2px"><b style="font-size:18px">⚠️ ยังเริ่มด่าน 1 ไม่ได้ ต้องเข้าห้องรอและได้ทีมก่อน</b><span class="sm">ทำขั้น 1-2-3 ในกล่องด้านบนให้เสร็จ · ระหว่างรอ กดดูวิดีโอ หรือ WI ได้</span></div>':''}<ol style="margin:0;padding-left:22px;font-size:18px;line-height:1.7"><li>กดปุ่มใหญ่ด้านล่าง (ถ้ายังไม่ได้ประชุมเช้า ระบบจะพาไปเอง)</li><li>เล่นด่านให้จบ แล้วทำ 3ส ก่อนเลิกงาน</li><li>ด่านถัดไปจะปลดล็อก เล่นต่อจนครบ 3 ด่าน</li></ol><div class="row"><button class="vbtn o" style="font-size:22px;padding:16px 28px" ${act}>${lab}</button><button class="vbtn b" data-act="hands">🖐️ ลองแพ็คจริง 1 กล่อง (ลงมือเอง)</button><button class="vbtn p" data-act="vidlv">🎬 ดูวิดีโอก่อน</button><button class="vbtn b" data-act="vidwi">📋 WI: วิธีทำงาน 12 ขั้น</button></div><p class="sm mut">อยากรู้วิธีเล่น: ดูวิดีโอก่อน 1 รอบ · ข้อมูลอื่นๆ ด้านล่างเป็นรายละเอียดเพิ่มเติม ไม่ต้องอ่านก็เล่นได้</p></section>`})()}
+const needJoin=()=>lobbyOn()?myIdx()==null:!(P.team&&P.nick);
+function lobbySecHTML(){return `<section class="card" style="${needJoin()?'border:4px solid #ff5d3a':''}"><h2>👥 ${needJoin()?(lobbyOn()?'ขั้นที่ 1: เข้าห้องรอและรับทีม':'ขั้นที่ 1: ตั้งชื่อทีมก่อนเริ่มเล่น'):'ห้องรอ ทีม และการแข่งขัน'}</h2><div id="lobbyBox" style="display:flex;flex-direction:column;gap:10px">${lobbyCardHTML()}</div><div id="lbBox">${boardHTML()}</div><div class="row"><button class="btn" data-act="arc">⚡ แข่งแพ็ค 45 วินาที × 3 รอบ</button></div><p class="sm mut">แต้มรวม = คะแนนดีที่สุดของ 3 ด่าน (ดาว + ชิ้น/ชม. + ต้นทุนต่ำ) + คะแนนแข่งแพ็ค</p></section>`}
+function startCardHTML(){return (()=>{const nl=[1,2,3].find(l=>!(P.stars[l]>0))||0;const lab=nl?`▶ เริ่มเล่น ด่าน ${nl}`:'🏁 ดูพิธีปิดเกม';const act=nl?`data-act="open" data-l="${nl}"`:'data-act="fin"';return `<section class="card lt" style="border:4px solid #ff5d3a;background:linear-gradient(135deg,#fff7e6,#ffe8d6)"><h2>👉 ${needJoin()?(lobbyOn()?'ขั้นที่ 2: รอได้ทีมก่อน':'ขั้นที่ 2: ตั้งชื่อทีมให้เสร็จก่อน'):'เริ่มเล่นตรงนี้'}</h2>${needJoin()?'<div class="card lt" style="border:3px solid #ff5d3a;background:#fff0ea;gap:2px"><b style="font-size:18px">⚠️ ยังเริ่มด่าน 1 ไม่ได้</b><span class="sm">ทำขั้น 1 → 2 → 3 ในกล่องด้านบนให้ครบก่อน · ระหว่างนั้นกดดูวิดีโอ หรือ WI ได้</span></div>':''}<ol style="margin:0;padding-left:22px;font-size:18px;line-height:1.7"><li>กดปุ่มใหญ่ด้านล่าง (ถ้ายังไม่ได้ประชุมเช้า ระบบจะพาไปเอง)</li><li>เล่นด่านให้จบ แล้วทำ 3ส ก่อนเลิกงาน</li><li>ด่านถัดไปจะปลดล็อก เล่นต่อจนครบ 3 ด่าน</li></ol><div class="row"><button class="vbtn o" style="font-size:22px;padding:16px 28px" ${act}>${lab}</button><button class="vbtn b" data-act="hands">🖐️ ลองแพ็คจริง 1 กล่อง (ลงมือเอง)</button><button class="vbtn p" data-act="vidlv">🎬 ดูวิดีโอก่อน</button><button class="vbtn b" data-act="vidwi">📋 WI: วิธีทำงาน 12 ขั้น</button></div><p class="sm mut">อยากรู้วิธีเล่น: ดูวิดีโอก่อน 1 รอบ · ข้อมูลอื่นๆ ด้านล่างเป็นรายละเอียดเพิ่มเติม ไม่ต้องอ่านก็เล่นได้</p></section>`})()}
 function viewMap(){
   const J=needJoin();const all=P.stars[3]>0;V.view='map';
   $('app').innerHTML=`<div class="row"><button class="btn ghost" data-act="home">← หน้าแรก</button></div><header class="card" style="gap:8px"><div class="hero">${MASCOT('happy')}<div class="bubble">สวัสดี! เรามาแข่งกันแพ็คให้เร็ว ถูก และต้นทุนต่ำ!</div></div><span class="pill i" style="align-self:flex-start">ฝึกเป็นพนักงาน Packing ฟิล์มกระจกกันรอย บนไลน์ conveyor</span><h1>Pack <span>Flow</span> Basic</h1><p class="mut">ทดลองแพ็คงานเป็น 3 แบบ คือ คนเดียวทำครบ, ส่งต่อทีละคนแบบ One piece flow, และปรับปรุงด้วย Kaizen (ECRS) ก่อนเลื่อนตำแหน่งไปเล่น Beer Game ตัวเต็มกับทีม</p></header>
@@ -1870,7 +1906,9 @@ document.addEventListener('click',e=>{
   else if(a==='eoddone'){mtClear();P.s3=Object.assign({},P.s3||{});P.s3[EO.l]=today();saveP();submitScore();if(EO.l===3)viewFinale();else viewMapAfter()}
   else if(a==='fin'){viewFinale();window.scrollTo(0,0)}
   else if(a==='finexit'){mtClear();speakStop();viewMap();window.scrollTo(0,0)}
-  else if(a==='open'){const l=+t.dataset.l;lockN();if(lobbyGate()){viewMap();$('app').insertAdjacentHTML('afterbegin',gateMsgHTML());window.scrollTo(0,0);return}if(SANDBOX){sbGo(l);return}if(l>1&&passedL(l-1)&&!s3Done(l-1)){EO.l=l-1;viewEOD(l-1);window.scrollTo(0,0);return}if(!mtDone()){MT.ret=l;viewMorning();window.scrollTo(0,0);return}if(l===1){startLT(1);viewM1()}else if(l===2){startLT(2);viewM2()}else{stopLT();viewM3()}window.scrollTo(0,0)}
+  else if(a==='open'){const l=+t.dataset.l;lockN();
+    if(!lobbyOn()&&!(P.team&&P.nick)){viewMap();$('app').insertAdjacentHTML('afterbegin','<div class="card lt" style="border:4px solid #ff5d3a;background:#fff0ea"><b style="font-size:19px">⏳ ตั้งชื่อทีมก่อน แล้วจึงเริ่มเล่นได้</b><span class="sm">ทำขั้น 1 → 2 → 3 ในกล่องด้านบนให้ครบ</span></div>');window.scrollTo(0,0);return}
+    if(lobbyGate()){viewMap();$('app').insertAdjacentHTML('afterbegin',gateMsgHTML());window.scrollTo(0,0);return}if(SANDBOX){sbGo(l);return}if(l>1&&passedL(l-1)&&!s3Done(l-1)){EO.l=l-1;viewEOD(l-1);window.scrollTo(0,0);return}if(!mtDone()){MT.ret=l;viewMorning();window.scrollTo(0,0);return}if(l===1){startLT(1);viewM1()}else if(l===2){startLT(2);viewM2()}else{stopLT();viewM3()}window.scrollTo(0,0)}
   else if(a==='av'){P.avatar=Object.assign({},AVDEF,P.avatar||{});P.avatar[t.dataset.k]=+t.dataset.v;saveP();viewMorning()}
   else if(a==='mtn'){const mm=Object.assign({n:sceneSize(1),votes:{},confirm:0},curTeam().man||{});mm.n=Math.max(1,Math.min(10,sceneSize(1)+(+t.dataset.d)));writeTeam({man:mm}).then(()=>viewMorning())}
   else if(a==='mtmute'){P.mute=!P.mute;saveP();viewMorning()}
@@ -1941,3 +1979,5 @@ document.addEventListener('click',e=>{
 simLocalLoad();bootView();dbInit();
 setInterval(()=>{try{const v=V.view;if(!v)return;const vm=v==='vid'?VID.mode+':'+VID.i:'';if(v!==P.lastView||vm!==(P.lastVid||'')){P.lastView=v;P.lastVid=vm;P.lastT=Date.now();saveP()}}catch(e){}},1200);
 </script>
+
+</body></html>
